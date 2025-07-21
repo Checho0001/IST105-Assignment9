@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .utils.dnac import DNAC_Manager
+from .utils.dnac_network import DNAC_Manager
 from .models import InteractionLog
 
 dnac = DNAC_Manager()
