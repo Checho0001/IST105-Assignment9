@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNA Center Auth Token</title>
+</head>
+<body>
+    <h1>DNA Center Authentication</h1>
+
+    {% if token %}
+        <p><strong>Auth Token:</strong> {{ token }}</p>
+        <a href="{% url 'devices' %}">View Devices</a>
+    {% else %}
+        <p>Authentication failed. Please try again.</p>
+    {% endif %}
+</body>
+</html>

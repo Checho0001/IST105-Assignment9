@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Device Interfaces</title>
+</head>
+<body>
+    <h1>Interfaces for IP: {{ ip }}</h1>
+
+    {% if interfaces %}
+        <table border="1">
+            <tr>
+                <th>Interface</th>
+                <th>Status</th>
+                <th>VLAN</th>
+                <th>Speed</th>
+            </tr>
+            {% for intf in interfaces %}
+                <tr>
+                    <td>{{ intf.portName }}</td>
+                    <td>{{ intf.status }}</td>
+                    <td>{{ intf.vlanId }}</td>
+                    <td>{{ intf.speed }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No interfaces found or API call failed.</p>
+    {% endif %}
+
+    <p><a href="{% url 'devices' %}">Back to Devices</a></p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Devices</title>
+</head>
+<body>
+    <h1>DNA Center Devices</h1>
+
+    {% if devices %}
+        <table border="1">
+            <tr>
+                <th>Hostname</th>
+                <th>IP Address</th>
+                <th>Platform</th>
+                <th>Status</th>
+                <th>Interfaces</th>
+            </tr>
+            {% for device in devices %}
+                <tr>
+                    <td>{{ device.hostname }}</td>
+                    <td>{{ device.managementIpAddress }}</td>
+                    <td>{{ device.platformId }}</td>
+                    <td>{{ device.reachabilityStatus }}</td>
+                    <td>
+                        <a href="{% url 'interfaces' %}?ip={{ device.managementIpAddress }}">View Interfaces</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No devices found or API call failed.</p>
+    {% endif %}
+</body>
+</html>
